@@ -32,14 +32,14 @@ int main(int argc, char * argv[])
 
 	if (argc != 3)
 	{
-		printf("Ошибка! Количество элементов не равно 3.");
+		printf("РћС€РёР±РєР°! РљРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РЅРµ СЂР°РІРЅРѕ 3.");
 		return 1;
 	}
 
 	DWORD dwCount;
 	if (sscanf_s(argv[1], "%d", &dwCount) != 1)
 	{
-		printf("Ошибка! Аргументом должно быть число.");
+		printf("РћС€РёР±РєР°! РђСЂРіСѓРјРµРЅС‚РѕРј РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С‡РёСЃР»Рѕ.");
 		return 1;
 	}
 
@@ -75,15 +75,15 @@ int main(int argc, char * argv[])
 			return 1;
 		}
 
-		printf("Количество непустых записей: %d\nРазмер файла: %d\n", head.dwCountNotNull, head.dwSize);
+		printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РЅРµРїСѓСЃС‚С‹С… Р·Р°РїРёСЃРµР№: %d\nР Р°Р·РјРµСЂ С„Р°Р№Р»Р°: %d\n", head.dwCountNotNull, head.dwSize);
 
-		printf("Введите ID(0-%d): ", dwCount-1);
+		printf("Р’РІРµРґРёС‚Рµ ID(0-%d): ", dwCount-1);
 		scanf_s("%i", &item);
-		printf("\nЧто сделать?\n");
-		printf("1. Просмотреть\n");
-		printf("2. Модифицировать\n");
-		printf("3. Удалить\n");
-		printf("\nВведите номер: ");
+		printf("\nР§С‚Рѕ СЃРґРµР»Р°С‚СЊ?\n");
+		printf("1. РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ\n");
+		printf("2. РњРѕРґРёС„РёС†РёСЂРѕРІР°С‚СЊ\n");
+		printf("3. РЈРґР°Р»РёС‚СЊ\n");
+		printf("\nР’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ: ");
 		scanf_s("%i", &n);
 		
 		switch (n)
@@ -94,21 +94,21 @@ int main(int argc, char * argv[])
 				printInfo(rec);
 				break;
 			case 2:
-				printf("Введите строку: ");
+				printf("Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ: ");
 				scanf_s("%s", str, MAX_SIZE);
 				rec = getInfo(rFile, &item);
 				CloseHandle(rFile);
 				setInfo(head, rec, str);
-				printf("Информация изменена\n\n");
+				printf("РРЅС„РѕСЂРјР°С†РёСЏ РёР·РјРµРЅРµРЅР°\n\n");
 				break;
 			case 3:
 				CloseHandle(rFile);
 				delInfo(&item);
-				printf("Информация удалена\n\n");
+				printf("РРЅС„РѕСЂРјР°С†РёСЏ СѓРґР°Р»РµРЅР°\n\n");
 				break;
 			default:
 				CloseHandle(rFile);
-				printf("Ошибка! Неккоректный номер.\n\n");
+				printf("РћС€РёР±РєР°! РќРµРєРєРѕСЂРµРєС‚РЅС‹Р№ РЅРѕРјРµСЂ.\n\n");
 				break;
 		}
 	}
@@ -209,9 +209,9 @@ void printInfo(RECORD rec)
 	SYSTEMTIME sysTime;
 	printf("ID: %d\n", rec.dwId);
 	FileTimeToSystemTime(&rec.ftTime, &sysTime);
-	printf("Время создания: %02d.%02d.%04d %02d:%02d:%02d\n",
+	printf("Р’СЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ: %02d.%02d.%04d %02d:%02d:%02d\n",
 		sysTime.wDay, sysTime.wMonth, sysTime.wYear, sysTime.wHour, sysTime.wMinute, sysTime.wSecond);
-	printf("Строка: %s\nКоличество редактирований: %d\n\n", rec.cStr, rec.dwCountEdt);
+	printf("РЎС‚СЂРѕРєР°: %s\nРљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёР№: %d\n\n", rec.cStr, rec.dwCountEdt);
 }
 
 int setInfo(HEADERFILE head, RECORD rec, LPSTR lpStr)
@@ -269,7 +269,7 @@ void printError()
 		0,
 		NULL);
 
-	printf("Код ошибки: №%d. %s", dwErrCode, lpMsgBuf);
+	printf("РљРѕРґ РѕС€РёР±РєРё: в„–%d. %s", dwErrCode, lpMsgBuf);
 
 	LocalFree(lpMsgBuf);
 }

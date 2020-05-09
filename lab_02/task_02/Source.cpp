@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	SetConsoleOutputCP(1251);
 	char command[80];
 	char path[MAX_PATH];
-	printf("\nФАЙЛОВЫЙ МЕНЕДЖЕР\n\n");
+	printf("\nР¤РђР™Р›РћР’Р«Р™ РњР•РќР•Р”Р–Р•Р \n\n");
 	do {
 		GetCurrentDirectory(MAX_PATH, path);
 		printf("\n%s>", path);
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 			scanf_s("%s", newFileName, MAX_PATH);
 			if (CopyFile(path, newFileName, true))
 			{
-				printf("Файл успешно скопирован\n");
+				printf("Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ СЃРєРѕРїРёСЂРѕРІР°РЅ\n");
 			}
 			else
 			{
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 			scanf_s("%s", path, MAX_PATH);
 			if (CreateDirectory(path, NULL))
 			{
-				printf("Директория успешно создана\n");
+				printf("Р”РёСЂРµРєС‚РѕСЂРёСЏ СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅР°\n");
 			}
 			else
 			{
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 			scanf_s("%s", path, MAX_PATH);
 			if (DeleteFile(path))
 			{
-				printf("Файл успешно удален\n");
+				printf("Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅ\n");
 			}
 			else
 			{
@@ -94,7 +94,7 @@ void printError()
 		0,
 		NULL);
 
-	_tprintf(_T("Код ошибки: №%d. %s"), dwErrCode, lpMsgBuf);
+	_tprintf(_T("РљРѕРґ РѕС€РёР±РєРё: в„–%d. %s"), dwErrCode, lpMsgBuf);
 
 	LocalFree(lpMsgBuf);
 }
@@ -118,7 +118,7 @@ void printInfoDir(LPCSTR lpDir)
 	}
 	else
 	{
-		printf("Содержимое папки %s\n\n", lpDir);
+		printf("РЎРѕРґРµСЂР¶РёРјРѕРµ РїР°РїРєРё %s\n\n", lpDir);
 		while (FindNextFile(hFind, &FindFileData) != 0)
 		{
 			if (strcmp(FindFileData.cFileName, "..") != 0)
@@ -131,7 +131,7 @@ void printInfoDir(LPCSTR lpDir)
 					printf("<DIR>");
 				}
 				DWORD sizeFile = (FindFileData.nFileSizeHigh * (MAXDWORD + 1)) + FindFileData.nFileSizeLow;
-				printf("\t%4d байт \t %s\n", sizeFile, FindFileData.cFileName);
+				printf("\t%4d Р±Р°Р№С‚ \t %s\n", sizeFile, FindFileData.cFileName);
 
 			}
 				
@@ -158,17 +158,17 @@ void printInfoFile(LPCSTR lpFile) {
 	if (GetFileInformationByHandle(hFile, &infoFile))
 	{
 		DWORD sizeFile = (infoFile.nFileSizeHigh * (MAXDWORD + 1)) + infoFile.nFileSizeLow;
-		printf("Серийный номер тома: %04X-%04X\n",
+		printf("РЎРµСЂРёР№РЅС‹Р№ РЅРѕРјРµСЂ С‚РѕРјР°: %04X-%04X\n",
 			HIWORD(infoFile.dwVolumeSerialNumber),
 			LOWORD(infoFile.dwVolumeSerialNumber));
-		printf("Размер файла: %d байт\n", sizeFile);
+		printf("Р Р°Р·РјРµСЂ С„Р°Р№Р»Р°: %d Р±Р°Р№С‚\n", sizeFile);
 		FileTimeToSystemTime(&infoFile.ftCreationTime, &sysTime);
-		printf("Дата создания: %02d.%02d.%04d %02d:%02d:%02d\n",
+		printf("Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ: %02d.%02d.%04d %02d:%02d:%02d\n",
 			sysTime.wDay, sysTime.wMonth, sysTime.wYear, sysTime.wHour, sysTime.wMinute, sysTime.wSecond);
 		FileTimeToSystemTime(&infoFile.ftLastWriteTime, &sysTime);
-		printf("Дата изменения: %02d.%02d.%04d %02d:%02d:%02d\n",
+		printf("Р”Р°С‚Р° РёР·РјРµРЅРµРЅРёСЏ: %02d.%02d.%04d %02d:%02d:%02d\n",
 			sysTime.wDay, sysTime.wMonth, sysTime.wYear, sysTime.wHour, sysTime.wMinute, sysTime.wSecond);
-		printf("Число связей: %d", infoFile.nNumberOfLinks);
+		printf("Р§РёСЃР»Рѕ СЃРІСЏР·РµР№: %d", infoFile.nNumberOfLinks);
 	}
 	CloseHandle(hFile);
 }
