@@ -49,9 +49,9 @@ int main(int argc, char *argv[])
 
 void StartWithoutArgs()
 {
-	printf("Вы не вводите аргумент или вводите неверный аргумент. Программа поддерживает 2 аргумента:\n");
-	printf("'-e' - вывести ошибку\n");
-	printf("'-s' - вывести информацию о системе\n\n");
+	printf("Р’С‹ РЅРµ РІРІРѕРґРёС‚Рµ Р°СЂРіСѓРјРµРЅС‚ РёР»Рё РІРІРѕРґРёС‚Рµ РЅРµРІРµСЂРЅС‹Р№ Р°СЂРіСѓРјРµРЅС‚. РџСЂРѕРіСЂР°РјРјР° РїРѕРґРґРµСЂР¶РёРІР°РµС‚ 2 Р°СЂРіСѓРјРµРЅС‚Р°:\n");
+	printf("'-e' - РІС‹РІРµСЃС‚Рё РѕС€РёР±РєСѓ\n");
+	printf("'-s' - РІС‹РІРµСЃС‚Рё РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ СЃРёСЃС‚РµРјРµ\n\n");
 	exit(EXIT_FAILURE);
 }
 
@@ -60,26 +60,26 @@ void GlobalMemoryInfoPrint()
 {
     MEMORYSTATUS memStatusStruct;
     GlobalMemoryStatus(&memStatusStruct);
-    cout << "   ~~~ Информация о текущем состоянии как физической, так и виртуальной памяти ~~~" << endl;
-    cout << "Приблизительный процент используемой физической памяти:"
+    cout << "   ~~~ РРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РµРєСѓС‰РµРј СЃРѕСЃС‚РѕСЏРЅРёРё РєР°Рє С„РёР·РёС‡РµСЃРєРѕР№, С‚Р°Рє Рё РІРёСЂС‚СѓР°Р»СЊРЅРѕР№ РїР°РјСЏС‚Рё ~~~" << endl;
+    cout << "РџСЂРёР±Р»РёР·РёС‚РµР»СЊРЅС‹Р№ РїСЂРѕС†РµРЅС‚ РёСЃРїРѕР»СЊР·СѓРµРјРѕР№ С„РёР·РёС‡РµСЃРєРѕР№ РїР°РјСЏС‚Рё:"
         << memStatusStruct.dwMemoryLoad << endl;
     // phisical memory
-    cout << "Объем фактической физической памяти в байтах:"
+    cout << "РћР±СЉРµРј С„Р°РєС‚РёС‡РµСЃРєРѕР№ С„РёР·РёС‡РµСЃРєРѕР№ РїР°РјСЏС‚Рё РІ Р±Р°Р№С‚Р°С…:"
         << memStatusStruct.dwTotalPhys << endl;
-    cout << "Объем доступной физической памяти в байтах:"
+    cout << "РћР±СЉРµРј РґРѕСЃС‚СѓРїРЅРѕР№ С„РёР·РёС‡РµСЃРєРѕР№ РїР°РјСЏС‚Рё РІ Р±Р°Р№С‚Р°С…:"
         << memStatusStruct.dwAvailPhys << endl;
     // memory limit for process
-    cout << "Текущий размер выделенного лимита памяти в байтах:"
+    cout << "РўРµРєСѓС‰РёР№ СЂР°Р·РјРµСЂ РІС‹РґРµР»РµРЅРЅРѕРіРѕ Р»РёРјРёС‚Р° РїР°РјСЏС‚Рё РІ Р±Р°Р№С‚Р°С…:"
         << memStatusStruct.dwTotalPageFile << endl;
-    cout << "Макс. объем памяти, который текущий процесс может зафиксировать в байтах:"
+    cout << "РњР°РєСЃ. РѕР±СЉРµРј РїР°РјСЏС‚Рё, РєРѕС‚РѕСЂС‹Р№ С‚РµРєСѓС‰РёР№ РїСЂРѕС†РµСЃСЃ РјРѕР¶РµС‚ Р·Р°С„РёРєСЃРёСЂРѕРІР°С‚СЊ РІ Р±Р°Р№С‚Р°С…:"
         << memStatusStruct.dwAvailPageFile << endl;
     // virtual memory
-    cout << "Общий объем виртуальной памяти, в байтах:"
+    cout << "РћР±С‰РёР№ РѕР±СЉРµРј РІРёСЂС‚СѓР°Р»СЊРЅРѕР№ РїР°РјСЏС‚Рё, РІ Р±Р°Р№С‚Р°С…:"
         << memStatusStruct.dwTotalVirtual << endl;
-    cout << "Объем доступной виртуальной памяти в байтах:"
+    cout << "РћР±СЉРµРј РґРѕСЃС‚СѓРїРЅРѕР№ РІРёСЂС‚СѓР°Р»СЊРЅРѕР№ РїР°РјСЏС‚Рё РІ Р±Р°Р№С‚Р°С…:"
         << memStatusStruct.dwAvailVirtual << endl;
 
-    cout << "\nИспользуемая функция - GlobalMemoryStatus ()\n" << endl;
+    cout << "\nРСЃРїРѕР»СЊР·СѓРµРјР°СЏ С„СѓРЅРєС†РёСЏ - GlobalMemoryStatus ()\n" << endl;
 }
 
 // Func for GetSystemInfo information print
@@ -87,18 +87,18 @@ void GetSystemInfoPrint()
 {
     SYSTEM_INFO sysInfo;
     GetSystemInfo(&sysInfo);
-    printf("    ~~~ Информация об оборудовании ~~~\n");
-    printf("  Архитектура процессора: %u\n",       sysInfo.wProcessorArchitecture);
-    printf("  Тип процессора: %u\n",               sysInfo.dwProcessorType);
+    printf("    ~~~ РРЅС„РѕСЂРјР°С†РёСЏ РѕР± РѕР±РѕСЂСѓРґРѕРІР°РЅРёРё ~~~\n");
+    printf("  РђСЂС…РёС‚РµРєС‚СѓСЂР° РїСЂРѕС†РµСЃСЃРѕСЂР°: %u\n",       sysInfo.wProcessorArchitecture);
+    printf("  РўРёРї РїСЂРѕС†РµСЃСЃРѕСЂР°: %u\n",               sysInfo.dwProcessorType);
     printf("  Number of processors: %u\n",         sysInfo.dwNumberOfProcessors);
-    printf("  Активная маска процессора: %u\n",        sysInfo.dwActiveProcessorMask);
+    printf("  РђРєС‚РёРІРЅР°СЏ РјР°СЃРєР° РїСЂРѕС†РµСЃСЃРѕСЂР°: %u\n",        sysInfo.dwActiveProcessorMask);
     printf("  Page size: %u\n",                    sysInfo.dwPageSize);
-    printf("  Минимальный адрес приложения: %p\n",  sysInfo.lpMinimumApplicationAddress);
-    printf("  Максимальный адрес приложения: %p\n",  sysInfo.lpMaximumApplicationAddress);
-    printf("  Детализация начального адреса, " 
-           "  по которому может быть выделена"
-           "  виртуальная память: %u\n",      sysInfo.dwAllocationGranularity);
-    printf("\nИспользуемая функция - GetSystemInfo ()\n");
+    printf("  РњРёРЅРёРјР°Р»СЊРЅС‹Р№ Р°РґСЂРµСЃ РїСЂРёР»РѕР¶РµРЅРёСЏ: %p\n",  sysInfo.lpMinimumApplicationAddress);
+    printf("  РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ Р°РґСЂРµСЃ РїСЂРёР»РѕР¶РµРЅРёСЏ: %p\n",  sysInfo.lpMaximumApplicationAddress);
+    printf("  Р”РµС‚Р°Р»РёР·Р°С†РёСЏ РЅР°С‡Р°Р»СЊРЅРѕРіРѕ Р°РґСЂРµСЃР°, " 
+           "  РїРѕ РєРѕС‚РѕСЂРѕРјСѓ РјРѕР¶РµС‚ Р±С‹С‚СЊ РІС‹РґРµР»РµРЅР°"
+           "  РІРёСЂС‚СѓР°Р»СЊРЅР°СЏ РїР°РјСЏС‚СЊ: %u\n",      sysInfo.dwAllocationGranularity);
+    printf("\nРСЃРїРѕР»СЊР·СѓРµРјР°СЏ С„СѓРЅРєС†РёСЏ - GetSystemInfo ()\n");
 }
 
 
@@ -125,7 +125,7 @@ void ImplementationShowErrorArg()
 	}
 	else
 	{
-		printf("Слишком много свободной памяти");
+		printf("РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ СЃРІРѕР±РѕРґРЅРѕР№ РїР°РјСЏС‚Рё");
 	}
 }
 

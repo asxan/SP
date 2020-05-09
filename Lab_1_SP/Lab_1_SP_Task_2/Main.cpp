@@ -21,10 +21,10 @@ int main(int argc, char* argv[])
 	setlocale(LC_ALL, "rus");
     if (argc != 3)
     {
-        fprintf(stderr, "Ошибка! Неверное количество аргументов для программы\n");
-        fprintf(stderr, "Необходимые ключи для запуска программы: ""-Имя файла для перекодрования\n");
-        fprintf(stderr, "Ключ кодовой страницы: '-a' - ANSI файл\n");
-		fprintf(stderr, "Ключ кодовой страницы: '-u' - Unicode файл\n");
+        fprintf(stderr, "РћС€РёР±РєР°! РќРµРІРµСЂРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р°СЂРіСѓРјРµРЅС‚РѕРІ РґР»СЏ РїСЂРѕРіСЂР°РјРјС‹\n");
+        fprintf(stderr, "РќРµРѕР±С…РѕРґРёРјС‹Рµ РєР»СЋС‡Рё РґР»СЏ Р·Р°РїСѓСЃРєР° РїСЂРѕРіСЂР°РјРјС‹: ""-РРјСЏ С„Р°Р№Р»Р° РґР»СЏ РїРµСЂРµРєРѕРґСЂРѕРІР°РЅРёСЏ\n");
+        fprintf(stderr, "РљР»СЋС‡ РєРѕРґРѕРІРѕР№ СЃС‚СЂР°РЅРёС†С‹: '-a' - ANSI С„Р°Р№Р»\n");
+		fprintf(stderr, "РљР»СЋС‡ РєРѕРґРѕРІРѕР№ СЃС‚СЂР°РЅРёС†С‹: '-u' - Unicode С„Р°Р№Р»\n");
         return 0;
     }
     else
@@ -39,10 +39,10 @@ int main(int argc, char* argv[])
         }
         else
         {
-            fprintf(stderr, "Неверные аргументы\n");
+            fprintf(stderr, "РќРµРІРµСЂРЅС‹Рµ Р°СЂРіСѓРјРµРЅС‚С‹\n");
         }
     }
-    fprintf(stdout, " *** Запись успешно завершена *** ");
+    fprintf(stdout, " *** Р—Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ Р·Р°РІРµСЂС€РµРЅР° *** ");
     return 0;
 }
 
@@ -59,7 +59,7 @@ void ANSI_To_Unicode(LPCSTR fileName)
 	char additionalTextToFileName[] = "_encoded_To_Unicode";
 	char nameDestinationFile[FILENAME_MAX]; // name to file with recoded text
 	ConcatFileNameWithString((char*)fileName, additionalTextToFileName, nameDestinationFile, FILENAME_MAX);
-    printf(" ~~~ Перекодированный файл будет расположен в:  ~~~ \n %s\n", nameDestinationFile);
+    printf(" ~~~ РџРµСЂРµРєРѕРґРёСЂРѕРІР°РЅРЅС‹Р№ С„Р°Р№Р» Р±СѓРґРµС‚ СЂР°СЃРїРѕР»РѕР¶РµРЅ РІ:  ~~~ \n %s\n", nameDestinationFile);
     // OPEN FILES
     handleSourceFile = CreateFile(fileName, GENERIC_READ, FILE_SHARE_READ,
                                   NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
@@ -121,7 +121,7 @@ void Unicode_To_ANSI(LPCSTR fileName)
 	CHAR nameDestinationFile[FILENAME_MAX]; // name to file with recoded text
 
 	ConcatFileNameWithString((char*)fileName, additionalTextToFileName, nameDestinationFile, FILENAME_MAX);
-    printf(" ~~~ Перекодированный файл будет расположен в:  ~~~ \n %s\n", nameDestinationFile);
+    printf(" ~~~ РџРµСЂРµРєРѕРґРёСЂРѕРІР°РЅРЅС‹Р№ С„Р°Р№Р» Р±СѓРґРµС‚ СЂР°СЃРїРѕР»РѕР¶РµРЅ РІ:  ~~~ \n %s\n", nameDestinationFile);
     // OPEN FILES
     handleSourceFile = CreateFile(fileName, GENERIC_READ, FILE_SHARE_READ,
 								  NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
