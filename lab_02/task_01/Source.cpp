@@ -3,6 +3,11 @@
 #include <stdio.h>
 #include <cstring>
 
+#define PRINT '1'
+#define MODIFY '2'
+#define DELETE1 '3'
+
+
 struct HEADERFILE
 {
 	DWORD dwCountNotNull;
@@ -88,12 +93,12 @@ int main(int argc, char * argv[])
 		
 		switch (n)
 		{
-			case 1:
+			case PRINT:
 				rec = getInfo(rFile, &item);
 				CloseHandle(rFile);
 				printInfo(rec);
 				break;
-			case 2:
+			case MODIFY:
 				printf("Введите строку: ");
 				scanf_s("%s", str, MAX_SIZE);
 				rec = getInfo(rFile, &item);
@@ -101,7 +106,7 @@ int main(int argc, char * argv[])
 				setInfo(head, rec, str);
 				printf("Информация изменена\n\n");
 				break;
-			case 3:
+			case DELETE1:
 				CloseHandle(rFile);
 				delInfo(&item);
 				printf("Информация удалена\n\n");
