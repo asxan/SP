@@ -1,0 +1,10 @@
+ID: 11252, waiting time: 1016
+ID: 15612, waiting time: 1250
+ID: 12608, waiting time: 1438
+ID: 22116, waiting time: 2125
+ID: 20408, waiting time: 3172
+ID: 12244, waiting time: 3516
+ID: 11044, waiting time: 4375
+ID: 23528, waiting time: 4391
+ID: 14772, waiting time: 5469
+ID: 13660, waiting time: 6688
