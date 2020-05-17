@@ -1,5 +1,4 @@
-// LimitedFileAccess.cpp : Defines the entry point for the console application.
-//
+// Lab_5_2
 
 #include "stdafx.h"
 
